@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    color: #0066cc;
+    text-align: center;
+}
+form {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-top: 10px;
+    color: #0066cc;
+}
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+#productosTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+#productosTable th, #productosTable td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+#productosTable th {
+    background-color: #0066cc;
+    color: white;
+}
+#productosTable input {
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #004499;
+}
+#factura {
+    display: none;
+    margin-top: 20px;
+    border: 1px solid #0066cc;
+    padding: 20px;
+    background-color: #e6f3ff;
+}
+.factura-header {
+    text-align: center;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.factura-detalles {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #0066cc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #0066cc;
+    color: white;
+}
+.total {
+    text-align: right;
+    font-weight: bold;
+}
+.totales {
+    text-align: right;
+    margin-top: 20px;
+}
+.totales p {
+    margin: 5px 0;
+}
+.factura-footer {
+    margin-top: 20px;
+    border-top: 1px solid #0066cc;
+    padding-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #factura, #factura * {
+        visibility: visible;
+    }
+    #factura {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
