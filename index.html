@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Facturas</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Facturas Dinámicas</h1>
+        <form id="facturaForm">
+            <h2>Datos de la Empresa</h2>
+            <label for="empresa">Nombre de la Empresa:</label>
+            <input type="text" id="empresa" value="Mi Empresa S.A." required>
+
+            <h2>Datos del Cliente</h2>
+            <label for="cliente">Nombre del Cliente:</label>
+            <input type="text" id="cliente" required>
+
+            <label for="rucCliente">RUC/CI del Cliente:</label>
+            <input type="text" id="rucCliente" required>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" required>
+
+            <h2>Productos</h2>
+            <table id="productosTable">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="productosBody">
+                    <tr class="product-row">
+                        <td><input type="text" class="descripcion" required></td>
+                        <td><input type="number" class="cantidad" min="1" value="1" required></td>
+                        <td><input type="number" class="precio" step="0.01" required></td>
+                        <td><input type="number" class="subtotal" readonly></td>
+                        <td><button type="button" onclick="eliminarFila(this)">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="agregarFila()">Agregar Producto</button>
+
+            <button type="button" onclick="generarFactura()">Generar Factura</button>
+        </form>
+
+        <div id="factura">
+            <div class="factura-header">
+                <h2>Factura</h2>
+                <p><strong>Empresa:</strong> <span id="empresaFactura"></span></p>
+            </div>
+            <div class="factura-detalles">
+                <div>
+                    <p><strong>Cliente:</strong> <span id="clienteFactura"></span></p>
+                    <p><strong>RUC/CI:</strong> <span id="rucClienteFactura"></span></p>
+                </div>
+                <div>
+                    <p><strong>Fecha:</strong> <span id="fechaFactura"></span></p>
+                    <p><strong>Factura N°:</strong> <span id="numeroFactura"></span></p>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody id="productosFactura">
+                </tbody>
+            </table>
+            <div class="totales">
+                <p><strong>Subtotal:</strong> ₲<span id="subtotalFactura"></span></p>
+                <p><strong>IVA (10%):</strong> ₲<span id="ivaFactura"></span></p>
+                <p class="total"><strong>Total:</strong> ₲<span id="totalFactura"></span></p>
+            </div>
+            <div class="factura-footer">
+                <p><strong>Términos y Condiciones:</strong></p>
+                <p>Esta factura es válida por 30 días. Pagos deben realizarse dentro del plazo establecido. Gracias por su negocio.</p>
+            </div>
+            <button onclick="imprimirFactura()">Imprimir Factura (Guardar como PDF)</button>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
